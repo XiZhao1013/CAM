@@ -18,6 +18,9 @@
  dst_a3 -> AlSiO5,
  H2O2, 
  H2SO4, 
+ mom_a1 -> C8520H11360O8520,
+ mom_a2 -> C8520H11360O8520,
+ mom_a4 -> C8520H11360O8520,
  ncl_a1 -> NaCl,
  ncl_a2 -> NaCl,
  ncl_a3 -> NaCl,
@@ -69,6 +72,9 @@
  dst_a3
  H2O2
  H2SO4
+ mom_a1
+ mom_a2
+ mom_a4
  ncl_a1
  ncl_a2
  ncl_a3
