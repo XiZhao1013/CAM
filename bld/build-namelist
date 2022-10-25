@@ -928,6 +928,7 @@ if ($aer_model eq 'mam' ) {
                         'soa'=>'s-organic',
                         'bc' =>'black-c',
                         'dst'=>'dust',
+                        'mom'=>'m-organic',
                         'ncl'=>'seasalt' );
 
   if ($aero_modes eq '3mode' ) {
@@ -968,10 +969,10 @@ if ($aer_model eq 'mam' ) {
     @mode_num      = qw(num_a1 num_a2 num_a3 num_a4);
     @mode_num_cw   = qw(num_c1 num_c2 num_c3 num_c4);
 
-    %modal_groups = ( 'accum'  => [qw(so4 pom soa bc dst ncl)],
-                      'aitken' => [qw(so4 soa ncl dst)],
+    %modal_groups = ( 'accum'  => [qw(so4 pom soa bc dst ncl mom)],
+                      'aitken' => [qw(so4 soa ncl dst mom)],
                       'coarse' => [qw(dst ncl so4)],
-                      'primary_carbon' => [qw(pom bc)] );
+                      'primary_carbon' => [qw(pom bc mom)] );
 
     @mode_num_src  = qw(A A A A);
 

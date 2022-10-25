@@ -76,6 +76,7 @@ subroutine read_namelist(nlfilename, single_column, scmlat, scmlon)
    use prescribed_ozone,    only: prescribed_ozone_readnl
    use prescribed_aero,     only: prescribed_aero_readnl
    use prescribed_ghg,      only: prescribed_ghg_readnl
+   use seasalt_model,   only: ocean_data_readnl
    use aircraft_emit,       only: aircraft_emit_readnl
    use cospsimulator_intr,  only: cospsimulator_intr_readnl
    use vertical_diffusion,  only: vd_readnl
@@ -175,6 +176,7 @@ subroutine read_namelist(nlfilename, single_column, scmlat, scmlon)
    call prescribed_ozone_readnl(nlfilename)
    call prescribed_aero_readnl(nlfilename)
    call prescribed_ghg_readnl(nlfilename)
+   call ocean_data_readnl(nlfilename)
    call co2_cycle_readnl(nlfilename)
    call aircraft_emit_readnl(nlfilename)
    call cospsimulator_intr_readnl(nlfilename)

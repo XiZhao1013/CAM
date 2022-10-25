@@ -9,23 +9,26 @@
       (  6)  dst_a3             (AlSiO5)
       (  7)  H2O2            
       (  8)  H2SO4           
-      (  9)  ncl_a1             (NaCl)
-      ( 10)  ncl_a2             (NaCl)
-      ( 11)  ncl_a3             (NaCl)
-      ( 12)  num_a1             (H)
-      ( 13)  num_a2             (H)
-      ( 14)  num_a3             (H)
-      ( 15)  num_a4             (H)
-      ( 16)  pom_a1             (C)
-      ( 17)  pom_a4             (C)
-      ( 18)  SO2             
-      ( 19)  so4_a1             (NH4HSO4)
-      ( 20)  so4_a2             (NH4HSO4)
-      ( 21)  so4_a3             (NH4HSO4)
-      ( 22)  SOAG               (C)
-      ( 23)  soa_a1             (C)
-      ( 24)  soa_a2             (C)
-      ( 25)  H2O             
+      (  9)  mom_a1             (C8520H11360O8520)
+      ( 10)  mom_a2             (C8520H11360O8520)
+      ( 11)  mom_a4             (C8520H11360O8520)
+      ( 12)  ncl_a1             (NaCl)
+      ( 13)  ncl_a2             (NaCl)
+      ( 14)  ncl_a3             (NaCl)
+      ( 15)  num_a1             (H)
+      ( 16)  num_a2             (H)
+      ( 17)  num_a3             (H)
+      ( 18)  num_a4             (H)
+      ( 19)  pom_a1             (C)
+      ( 20)  pom_a4             (C)
+      ( 21)  SO2             
+      ( 22)  so4_a1             (NH4HSO4)
+      ( 23)  so4_a2             (NH4HSO4)
+      ( 24)  so4_a3             (NH4HSO4)
+      ( 25)  SOAG               (C)
+      ( 26)  soa_a1             (C)
+      ( 27)  soa_a2             (C)
+      ( 28)  H2O             
   
   
      Invariant species
@@ -55,23 +58,26 @@ Class List
       (  6)  dst_a3          
       (  7)  H2O2            
       (  8)  H2SO4           
-      (  9)  ncl_a1          
-      ( 10)  ncl_a2          
-      ( 11)  ncl_a3          
-      ( 12)  num_a1          
-      ( 13)  num_a2          
-      ( 14)  num_a3          
-      ( 15)  num_a4          
-      ( 16)  pom_a1          
-      ( 17)  pom_a4          
-      ( 18)  SO2             
-      ( 19)  so4_a1          
-      ( 20)  so4_a2          
-      ( 21)  so4_a3          
-      ( 22)  SOAG            
-      ( 23)  soa_a1          
-      ( 24)  soa_a2          
-      ( 25)  H2O             
+      (  9)  mom_a1          
+      ( 10)  mom_a2          
+      ( 11)  mom_a4          
+      ( 12)  ncl_a1          
+      ( 13)  ncl_a2          
+      ( 14)  ncl_a3          
+      ( 15)  num_a1          
+      ( 16)  num_a2          
+      ( 17)  num_a3          
+      ( 18)  num_a4          
+      ( 19)  pom_a1          
+      ( 20)  pom_a4          
+      ( 21)  SO2             
+      ( 22)  so4_a1          
+      ( 23)  so4_a2          
+      ( 24)  so4_a3          
+      ( 25)  SOAG            
+      ( 26)  soa_a1          
+      ( 27)  soa_a2          
+      ( 28)  H2O             
   
      Photolysis
   jh2o2            (  1)   H2O2 + hv ->  2*OH                                                   rate = ** User defined **         (  1)
@@ -107,6 +113,9 @@ Extraneous prod/loss species
     d(H2O2)/dt = r2                                                                                                     
                   - j1*H2O2  - r1*OH*H2O2                                                                               
     d(H2SO4)/dt = r6*OH*SO2                                                                                             
+    d(mom_a1)/dt = 0                                                                                                    
+    d(mom_a2)/dt = 0                                                                                                    
+    d(mom_a4)/dt = 0                                                                                                    
     d(ncl_a1)/dt = 0                                                                                                    
     d(ncl_a2)/dt = 0                                                                                                    
     d(ncl_a3)/dt = 0                                                                                                    

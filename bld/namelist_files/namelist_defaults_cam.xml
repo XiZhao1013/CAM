@@ -422,6 +422,24 @@
 <mam_dst  rad="rrtmg">atm/cam/physprops/dust_aeronet_rrtmg_c141106.nc</mam_dst>
 <mam_nh4  rad="rrtmg">atm/cam/physprops/sulfate_rrtmg_c080918.nc</mam_nh4>
 
+<!-- Marine organic matter optical properties -->
+<mam_mpoly  rad="rrtmg">atm/cam/physprops/poly_rrtmg_c130816.nc</mam_mpoly>
+<mam_mprot  rad="rrtmg">atm/cam/physprops/prot_rrtmg_c130816.nc</mam_mprot>
+<mam_mlip   rad="rrtmg">atm/cam/physprops/lipid_rrtmg_c130816.nc</mam_mlip>
+<!-- For generic MOM, use poly optical properties -->
+<mam_mom    rad="rrtmg">atm/cam/physprops/poly_rrtmg_c130816.nc</mam_mom>
+<!-- Bacteria and fungal spores aerosol propserties -- set equal to dust -->
+<mam_bac  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bac>
+<mam_bdes  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bdes>
+<mam_bfor  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bfor>
+<mam_bgrs  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bgrs>
+<mam_bcrp  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bcrp>
+<mam_bwet  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bwet>
+<mam_bshr  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bshr>
+<mam_bcst  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_bcst>
+<mam_btda  rad="rrtmg">atm/cam/physprops/dust4_rrtmg_c090521.nc</mam_btda>
+<mam_fgi   rad="rrtmg">atm/cam/physprops/fgi_rrtmg_c101112.nc</mam_fgi>
+
 <!-- Eruptive volcanic aerosols  -->
 <VOLC_MMR                        rad="camrt">atm/cam/physprops/volc_camRT_byradius_sigma1.6_c130724.nc</VOLC_MMR>
 <VOLC_MMR chem="none"            rad="camrt">atm/cam/physprops/sulfuricacid_cam3_c080918.nc</VOLC_MMR>
@@ -592,6 +610,18 @@
 <bndtvdms          hgrid="64x128"   >atm/cam/scyc/DMS_emissions_64x128_c030722.nc</bndtvdms>
 <bndtvdms          hgrid="32x64"    >atm/cam/scyc/DMS_emissions_32x64_c030722.nc</bndtvdms>
 <bndtvdms dyn="fv" hgrid="4x5"      >atm/cam/scyc/DMS_emissions_4x5_noncon_c050306.nc</bndtvdms>
+
+<!-- Ocean macromolecule concentrations for marine organic matter emissions -->
+<mam_mom_specifier>'chla:CHL1','mpoly:TRUEPOLYC','mprot:TRUEPROTC','mlip:TRUELIPC'</mam_mom_specifier>
+<mam_mom_filename>monthly_macromolecules_0.1deg_bilinear_latlon_year01_merge_date.nc</mam_mom_filename>
+<mam_mom_datapath>atm/cam/chem/trop_mam/marine_BGC/</mam_mom_datapath>
+<mam_mom_datatype>CYCLICAL</mam_mom_datatype>
+<mam_mom_cycle_yr>1</mam_mom_cycle_yr>
+<mam_mom_fixed_ymd>0</mam_mom_fixed_ymd>
+<mam_mom_fixed_tod>0</mam_mom_fixed_tod>
+<mam_mom_bubble_thickness>0.1e-6</mam_mom_bubble_thickness>
+<mam_mom_mixing_state>3</mam_mom_mixing_state>
+<mam_mom_parameterization>1</mam_mom_parameterization>
 
 <!-- oxidant data for prognostic sulfur cycle -->
 <bndtvoxid          hgrid="128x256" >atm/cam/scyc/oxid_128x256_L26_clim_c040112.nc</bndtvoxid>
