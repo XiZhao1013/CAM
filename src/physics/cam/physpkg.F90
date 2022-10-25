@@ -717,6 +717,7 @@ contains
     use prescribed_ozone,   only: prescribed_ozone_init
     use prescribed_ghg,     only: prescribed_ghg_init
     use prescribed_aero,    only: prescribed_aero_init
+    use seasalt_model,      only: init_ocean_data
     use aerodep_flx,        only: aerodep_flx_init
     use aircraft_emit,      only: aircraft_emit_init
     use prescribed_volcaero,only: prescribed_volcaero_init
@@ -863,6 +864,11 @@ contains
     call aircraft_emit_init()
     call prescribed_volcaero_init()
     call prescribed_strataero_init()
+
+    ! Initialize ocean data
+!    if (has_mam_mom) then
+       call init_ocean_data()
+!    end if
 
     ! co2 cycle
     if (co2_transport()) then
@@ -2877,6 +2883,7 @@ subroutine phys_timestep_init(phys_state, cam_in, cam_out, pbuf2d)
   use mo_apex,             only: mo_apex_init
   use epp_ionization,      only: epp_ionization_active
   use iop_forcing,         only: scam_use_iop_srf
+  use seasalt_model,       only: advance_ocean_data
   use nudging,             only: Nudge_Model, nudging_timestep_init
   use waccmx_phys_intr,    only: waccmx_phys_ion_elec_temp_timestep_init
 
@@ -2917,6 +2924,7 @@ subroutine phys_timestep_init(phys_state, cam_in, cam_out, pbuf2d)
   call aircraft_emit_adv(phys_state, pbuf2d)
   call prescribed_volcaero_adv(phys_state, pbuf2d)
   call prescribed_strataero_adv(phys_state, pbuf2d)
+  call advance_ocean_data(phys_state, pbuf2d)
 
   ! prescribed aerosol deposition fluxes
   call aerodep_flx_adv(phys_state, pbuf2d, cam_out)

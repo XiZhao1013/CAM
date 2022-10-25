@@ -36,6 +36,7 @@
       integer, public, protected :: ntot_amode = 0
       integer, public, protected :: nSeaSalt=0, nDust=0
       integer, public, protected :: nSO4=0, nNH4=0
+      integer, public, protected :: nmom=0
 
       !
       ! definitions for aerosol chemical components
@@ -91,6 +92,7 @@
            lptr_nh4_a_amode(:),     lptr_nh4_cw_amode(:), &
            lptr_no3_a_amode(:),     lptr_no3_cw_amode(:), &
            lptr_nacl_a_amode(:),    lptr_nacl_cw_amode(:),&
+           lptr_mom_a_amode(:),     lptr_mom_cw_amode(:), &
            lptr_dust_a_amode(:),    lptr_dust_cw_amode(:)
 
       integer, public, protected :: &
@@ -201,6 +203,7 @@
          lptr_msa_a_amode(ntot_amode), lptr_msa_cw_amode(ntot_amode), &
          lptr_nh4_a_amode(ntot_amode), lptr_nh4_cw_amode(ntot_amode), &
          lptr_nacl_a_amode(ntot_amode), lptr_nacl_cw_amode(ntot_amode), &
+         lptr_mom_a_amode(ntot_amode), lptr_mom_cw_amode(ntot_amode), &
          lptr_dust_a_amode(ntot_amode), lptr_dust_cw_amode(ntot_amode), &
          lptr_no3_a_amode(ntot_amode), lptr_no3_cw_amode(ntot_amode) &
     )
@@ -246,6 +249,7 @@
           xname_massptrcw(l,m) = xname_massptr(l,m)(:idx-1)//'_c'//modestr
           if (xname_massptr(l,m)(:3) == 'dst') nDust=nDust+1
           if (xname_massptr(l,m)(:3) == 'ncl') nSeaSalt=nSeaSalt+1
+          if (xname_massptr(l,m)(:3) == 'mom') nmom=nmom+1
           if (xname_massptr(l,m)(:3) == 'nh4') nNH4=nNH4+1
           if (xname_massptr(l,m)(:3) == 'so4') nSO4=nSO4+1
        enddo
@@ -895,6 +899,8 @@
           lptr_no3_cw_amode(m)   = init_val
           lptr_nacl_a_amode(m)   = init_val
           lptr_nacl_cw_amode(m)  = init_val
+          lptr_mom_a_amode(m)    = init_val
+          lptr_mom_cw_amode(m)   = init_val
           lptr_dust_a_amode(m)   = init_val
           lptr_dust_cw_amode(m)  = init_val
 
@@ -937,6 +943,9 @@
              case('ncl')
                 lptr_nacl_a_amode(m)  = lmassa
                 lptr_nacl_cw_amode(m) = lmassc
+             case('mom')
+                lptr_mom_a_amode(m)  = lmassa
+                lptr_mom_cw_amode(m) = lmassc
              case('pom')
                 pom_ndx = pom_ndx+1
                 lptr2_pom_a_amode(m,pom_ndx)  = lmassa
@@ -1044,6 +1053,12 @@
        do m = 1, ntot_amode
           call initaermodes_setspecptrs_write2( m,                    &
                lptr_nacl_a_amode(m), lptr_nacl_cw_amode(m),  'nacl' )
+       end do
+
+       write(iulog,9000) 'm-organic  '
+       do m = 1, ntot_amode
+          call initaermodes_setspecptrs_write2( m,                    &
+               lptr_mom_a_amode(m), lptr_mom_cw_amode(m),  'mom' )
        end do
 
        write(iulog,9000) 'dust       '
